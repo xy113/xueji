@@ -1,0 +1,510 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>学籍卡</title>
+<link href="/static/images/style.css" rel="stylesheet" type="text/css">
+<script src="static/js/jquery.js" type="text/javascript"></script>
+<script src="static/js/common.js" type="text/javascript"></script>
+</head>
+
+<body style="padding-top:10px;">
+<div class="body">
+	<h1 class="card-title"><span style="text-decoration:underline; letter-spacing:8px; font-size:24px;">盘县义务教育阶段学生学籍卡</span></h1>
+	<p class="card-info">学校（盖章）　　　学籍号：{$studentid}　　　变更号</p>
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" class="card">
+      <tr>
+        <td width="57">姓名</td>
+        <td width="100">$student[name]</td>
+        <td width="44">性别</td>
+        <td width="68">$student[sex]</td>
+        <td width="46">民族</td>
+        <td width="89">$student[nation]</td>
+        <td width="66">出生年月</td>
+        <td width="193">$student[birthday]</td>
+        {eval $rows=$fcounts+4}
+        <td width="121" rowspan="{$rows}" class="shu"><img src="data/avatar/$student[avatar]" alt="学生照片" class="avatar" /></td>
+      </tr>
+      <tr>
+        <td>籍贯</td>
+        <td colspan="4">$student[birthplace]</td>
+        <td>家庭住址</td>
+        <td colspan="2">$student[address]</td>
+      </tr>
+      <tr>
+        <td colspan="2">何时何地加入共青团</td>
+        <td colspan="3">&nbsp;</td>
+        <td>身份证号</td>
+        <td colspan="2">$student[idnumber]</td>
+      </tr>
+      {eval $rows=$fcounts+1}
+  <tr>
+    <td rowspan="$rows">家庭<br />
+      主要<br />
+      成员</td>
+    <td>关系</td>
+    <td colspan="2">姓名</td>
+    <td colspan="2">工作单位及职务</td>
+    <td colspan="2">工作、地点</td>
+  </tr>
+  {if $family}
+  {loop $family $fa}
+  <tr>
+    <td>$fa[relationship]</td>
+    <td colspan="2">$fa[name]</td>
+    <td colspan="2">$fa[job]</td>
+    <td colspan="2">$fa[workplace]</td>
+  </tr>
+      {/loop}
+	  {else}
+	  <tr>
+    <td>$fa[relationship]</td>
+    <td colspan="2">$fa[name]</td>
+    <td colspan="2">$fa[job]</td>
+    <td colspan="2">$fa[workplace]</td>
+  </tr><tr>
+    <td>$fa[relationship]</td>
+    <td colspan="2">$fa[name]</td>
+    <td colspan="2">$fa[job]</td>
+    <td colspan="2">$fa[workplace]</td>
+  </tr>
+	  {/if}
+    </table>
+    <table width="100%" border="0" cellspacing="1" cellpadding="0" class="card" style="border-top:0; margin-top:-1px;">
+	{if $tasks[3]}
+	{loop $tasks[3] $task}
+	<tr>
+      <td width="99">转学日期，年级及原因</td>
+      <td width="248">{$task[date]},{$task[tasktitle]},原因：{$task[body]}</td>
+      <td width="42">去向</td>
+      <td width="154">$task[whereabouts]</td>
+      <td width="68">经办人（签字）</td>
+      <td width="102">$task[manager]</td>
+    </tr>
+	{/loop}
+	{else}
+    <tr>
+      <td width="99">转学日期，年级及原因</td>
+      <td width="248">&nbsp;</td>
+      <td width="42">去向</td>
+      <td width="154">&nbsp;</td>
+      <td width="68">经办人（签字）</td>
+      <td width="102">&nbsp;</td>
+    </tr>
+	{/if}
+    {if $tasks[4]}
+	{loop $tasks[4] $task}
+	<tr>
+      <td>休学日期，年级及原因</td>
+      <td>{$task[date]},{$task[tasktitle]},原因：{$task[body]}</td>
+      <td>去向</td>
+      <td>$task[whereabouts]</td>
+      <td>经办人（签字）</td>
+      <td>$task[manager]</td>
+    </tr>
+	{/loop}
+	{else}
+    <tr>
+      <td>休学日期，年级及原因</td>
+      <td>&nbsp;</td>
+      <td>去向</td>
+      <td>&nbsp;</td>
+      <td>经办人（签字）</td>
+      <td>&nbsp;</td>
+    </tr>
+	{/if}
+	{if $tasks[7]}
+	{loop $tasks[7] $task}
+	<tr>
+      <td>退学日期，年级及原因</td>
+      <td>{$task[date]},{$task[tasktitle]},原因：{$task[body]}</td>
+      <td>去向</td>
+      <td>$task[whereabouts]</td>
+      <td>经办人（签字）</td>
+      <td>$task[manager]</td>
+    </tr>
+	{/loop}
+	{else}
+    <tr>
+      <td>退学日期，年级及原因</td>
+      <td>&nbsp;</td>
+      <td>去向</td>
+      <td>&nbsp;</td>
+      <td>经办人（签字）</td>
+      <td>&nbsp;</td>
+    </tr>
+	{/if}
+    {if $tasks[5]}
+	{loop $tasks[5] $task}
+	<tr>
+      <td>复学日期，年级及原因</td>
+      <td>{$task[date]},{$task[tasktitle]},原因：{$task[body]}</td>
+      <td>重编号</td>
+      <td>$task[whereabouts]</td>
+      <td>经办人（签字）</td>
+      <td>$task[manager]</td>
+    </tr>
+	{/loop}
+	{else}
+    <tr>
+      <td>复学日期，年级及原因</td>
+      <td>&nbsp;</td>
+      <td>重编号</td>
+      <td>&nbsp;</td>
+      <td>经办人（签字）</td>
+      <td>&nbsp;</td>
+    </tr>
+	{/if}
+  </table>
+  <table width="100%" border="0" cellspacing="1" cellpadding="0" class="card" style="border-top:0; margin-top:-1px;">
+    <tr>
+      <td colspan="3" rowspan="2" class="xiexian">&nbsp;</td>
+      <td width="35" rowspan="2" class="shu">语文</td>
+      <td width="35" rowspan="2" class="shu">数学</td>
+      <td width="35" rowspan="2" class="shu">外语</td>
+      <td width="35" rowspan="2" class="shu">物理</td>
+      <td width="35" rowspan="2" class="shu">化学</td>
+      <td width="35" rowspan="2" class="shu">生物</td>
+      <td width="35" rowspan="2" class="shu">政治</td>
+      <td width="35" rowspan="2" class="shu">地理</td>
+      <td width="35" rowspan="2" class="shu">历史</td>
+      <td width="35" rowspan="2" class="shu">自然</td>
+      <td width="35" rowspan="2" class="shu">体育</td>
+      <td width="35" rowspan="2" class="shu">美术</td>
+      <td width="35" rowspan="2" class="shu">音乐</td>
+      <td width="35" rowspan="2" class="shu">科学</td>
+      <td colspan="5" class="shu">考勤统计</td>
+      <td colspan="2" rowspan="2" class="shu">其他</td>
+    </tr>
+    <tr>
+      <td class="shu">病</td>
+      <td class="shu">事</td>
+      <td class="shu">旷</td>
+      <td class="shu">迟</td>
+      <td class="shu">早退</td>
+    </tr>
+    <tr>
+      <td width="23" rowspan="12" class="shu">学<br>
+        <br>
+        <br>
+      习<br>
+      <br>
+      <br>
+      成<br>
+      <br>
+      <br>
+      绩</td>
+      <td width="23" rowspan="2" class="shu">一<br>
+        年<br>
+      级</td>
+      <td width="73" class="shu">第一<br />
+      学期</td>
+      <td class="shu">$xueqi1[yuwen]</td>
+      <td class="shu">$xueqi1[shuxue]</td>
+      <td class="shu">$xueqi1[waiyu]</td>
+      <td class="shu">$xueqi1[wuli]</td>
+      <td class="shu">$xueqi1[huaxue]</td>
+      <td class="shu">$xueqi1[shengwu]</td>
+      <td class="shu">$xueqi1[zhengzhi]</td>
+      <td class="shu">$xueqi1[dili]</td>
+      <td class="shu">$xueqi1[lishi]</td>
+      <td class="shu">$xueqi1[ziran]</td>
+      <td class="shu">$xueqi1[tiyu]</td>
+      <td class="shu">$xueqi1[meishu]</td>
+      <td class="shu">$xueqi1[yinyue]</td>
+      <td class="shu">$xueqi1[kexue]</td>
+      <td class="shu">$xueqi1[bingjia]</td>
+      <td class="shu">$xueqi1[shijia]</td>
+      <td class="shu">$xueqi1[kuangke]</td>
+      <td class="shu">$xueqi1[chidao]</td>
+      <td class="shu">$xueqi1[zaotui]</td>
+      <td colspan="2" class="shu">$xueqi1[qita]</td>
+    </tr>
+    <tr>
+      <td class="shu">第二<br />
+      学期</td>
+      <td class="shu">$xueqi2[yuwen]</td>
+      <td class="shu">$xueqi2[shuxue]</td>
+      <td class="shu">$xueqi2[waiyu]</td>
+      <td class="shu">$xueqi2[wuli]</td>
+      <td class="shu">$xueqi2[huaxue]</td>
+      <td class="shu">$xueqi2[shengwu]</td>
+      <td class="shu">$xueqi2[zhengzhi]</td>
+      <td class="shu">$xueqi2[dili]</td>
+      <td class="shu">$xueqi2[lishi]</td>
+      <td class="shu">$xueqi2[ziran]</td>
+      <td class="shu">$xueqi2[tiyu]</td>
+      <td class="shu">$xueqi2[meishu]</td>
+      <td class="shu">$xueqi2[yinyue]</td>
+      <td class="shu">$xueqi2[kexue]</td>
+      <td class="shu">$xueqi2[bingjia]</td>
+      <td class="shu">$xueqi2[shijia]</td>
+      <td class="shu">$xueqi2[kuangke]</td>
+      <td class="shu">$xueqi2[chidao]</td>
+      <td class="shu">$xueqi2[zaotui]</td>
+      <td colspan="2" class="shu">$xueqi2[qita]</td>
+    </tr>
+    
+    <tr>
+      <td rowspan="2" class="shu">二<br>
+        年<br>
+      级</td>
+      <td class="shu">第一<br />
+      学期</td>
+      <td class="shu">$xueqi3[yuwen]</td>
+      <td class="shu">$xueqi3[shuxue]</td>
+      <td class="shu">$xueqi3[waiyu]</td>
+      <td class="shu">$xueqi3[wuli]</td>
+      <td class="shu">$xueqi3[huaxue]</td>
+      <td class="shu">$xueqi3[shengwu]</td>
+      <td class="shu">$xueqi3[zhengzhi]</td>
+      <td class="shu">$xueqi3[dili]</td>
+      <td class="shu">$xueqi3[lishi]</td>
+      <td class="shu">$xueqi3[ziran]</td>
+      <td class="shu">$xueqi3[tiyu]</td>
+      <td class="shu">$xueqi3[meishu]</td>
+      <td class="shu">$xueqi3[yinyue]</td>
+      <td class="shu">$xueqi3[kexue]</td>
+      <td class="shu">$xueqi3[bingjia]</td>
+      <td class="shu">$xueqi3[shijia]</td>
+      <td class="shu">$xueqi3[kuangke]</td>
+      <td class="shu">$xueqi3[chidao]</td>
+      <td class="shu">$xueqi3[zaotui]</td>
+      <td colspan="2" class="shu">$xueqi3[qita]</td>
+    </tr>
+    <tr>
+      <td class="shu">第二<br />
+      学期</td>
+      <td class="shu">$xueqi4[yuwen]</td>
+      <td class="shu">$xueqi4[shuxue]</td>
+      <td class="shu">$xueqi4[waiyu]</td>
+      <td class="shu">$xueqi4[wuli]</td>
+      <td class="shu">$xueqi4[huaxue]</td>
+      <td class="shu">$xueqi4[shengwu]</td>
+      <td class="shu">$xueqi4[zhengzhi]</td>
+      <td class="shu">$xueqi4[dili]</td>
+      <td class="shu">$xueqi4[lishi]</td>
+      <td class="shu">$xueqi4[ziran]</td>
+      <td class="shu">$xueqi4[tiyu]</td>
+      <td class="shu">$xueqi4[meishu]</td>
+      <td class="shu">$xueqi4[yinyue]</td>
+      <td class="shu">$xueqi4[kexue]</td>
+      <td class="shu">$xueqi4[bingjia]</td>
+      <td class="shu">$xueqi4[shijia]</td>
+      <td class="shu">$xueqi4[kuangke]</td>
+      <td class="shu">$xueqi4[chidao]</td>
+      <td class="shu">$xueqi4[zaotui]</td>
+      <td colspan="2" class="shu">$xueqi4[qita]</td>
+    </tr>
+    
+    <tr>
+      <td rowspan="2" class="shu">三<br>
+        年<br>
+      级</td>
+      <td class="shu">第一<br />
+      学期</td>
+      <td class="shu">$xueqi5[yuwen]</td>
+      <td class="shu">$xueqi5[shuxue]</td>
+      <td class="shu">$xueqi5[waiyu]</td>
+      <td class="shu">$xueqi5[wuli]</td>
+      <td class="shu">$xueqi5[huaxue]</td>
+      <td class="shu">$xueqi5[shengwu]</td>
+      <td class="shu">$xueqi5[zhengzhi]</td>
+      <td class="shu">$xueqi5[dili]</td>
+      <td class="shu">$xueqi5[lishi]</td>
+      <td class="shu">$xueqi5[ziran]</td>
+      <td class="shu">$xueqi5[tiyu]</td>
+      <td class="shu">$xueqi5[meishu]</td>
+      <td class="shu">$xueqi5[yinyue]</td>
+      <td class="shu">$xueqi5[kexue]</td>
+      <td class="shu">$xueqi5[bingjia]</td>
+      <td class="shu">$xueqi5[shijia]</td>
+      <td class="shu">$xueqi5[kuangke]</td>
+      <td class="shu">$xueqi5[chidao]</td>
+      <td class="shu">$xueqi5[zaotui]</td>
+      <td colspan="2" class="shu">$xueqi5[qita]</td>
+    </tr>
+    <tr>
+      <td class="shu">第二<br />
+      学期</td>
+      <td class="shu">$xueqi6[yuwen]</td>
+      <td class="shu">$xueqi6[shuxue]</td>
+      <td class="shu">$xueqi6[waiyu]</td>
+      <td class="shu">$xueqi6[wuli]</td>
+      <td class="shu">$xueqi6[huaxue]</td>
+      <td class="shu">$xueqi6[shengwu]</td>
+      <td class="shu">$xueqi6[zhengzhi]</td>
+      <td class="shu">$xueqi6[dili]</td>
+      <td class="shu">$xueqi6[lishi]</td>
+      <td class="shu">$xueqi6[ziran]</td>
+      <td class="shu">$xueqi6[tiyu]</td>
+      <td class="shu">$xueqi6[meishu]</td>
+      <td class="shu">$xueqi6[yinyue]</td>
+      <td class="shu">$xueqi6[kexue]</td>
+      <td class="shu">$xueqi6[bingjia]</td>
+      <td class="shu">$xueqi6[shijia]</td>
+      <td class="shu">$xueqi6[kuangke]</td>
+      <td class="shu">$xueqi6[chidao]</td>
+      <td class="shu">$xueqi6[zaotui]</td>
+      <td colspan="2" class="shu">$xueqi6[qita]</td>
+    </tr>
+    <tr>
+      <td rowspan="2" class="shu">四<br />
+年<br />
+级</td>
+      <td class="shu">第一<br />
+学期</td>
+      <td class="shu">$xueqi7[yuwen]</td>
+      <td class="shu">$xueqi7[shuxue]</td>
+      <td class="shu">$xueqi7[waiyu]</td>
+      <td class="shu">$xueqi7[wuli]</td>
+      <td class="shu">$xueqi7[huaxue]</td>
+      <td class="shu">$xueqi7[shengwu]</td>
+      <td class="shu">$xueqi7[zhengzhi]</td>
+      <td class="shu">$xueqi7[dili]</td>
+      <td class="shu">$xueqi7[lishi]</td>
+      <td class="shu">$xueqi7[ziran]</td>
+      <td class="shu">$xueqi7[tiyu]</td>
+      <td class="shu">$xueqi7[meishu]</td>
+      <td class="shu">$xueqi7[yinyue]</td>
+      <td class="shu">$xueqi7[kexue]</td>
+      <td class="shu">$xueqi7[bingjia]</td>
+      <td class="shu">$xueqi7[shijia]</td>
+      <td class="shu">$xueqi7[kuangke]</td>
+      <td class="shu">$xueqi7[chidao]</td>
+      <td class="shu">$xueqi7[zaotui]</td>
+      <td colspan="2" class="shu">$xueqi7[qita]</td>
+    </tr>
+    <tr>
+      <td class="shu">第二<br />
+学期</td>
+      <td class="shu">$xueqi8[yuwen]</td>
+      <td class="shu">$xueqi8[shuxue]</td>
+      <td class="shu">$xueqi8[waiyu]</td>
+      <td class="shu">$xueqi8[wuli]</td>
+      <td class="shu">$xueqi8[huaxue]</td>
+      <td class="shu">$xueqi8[shengwu]</td>
+      <td class="shu">$xueqi8[zhengzhi]</td>
+      <td class="shu">$xueqi8[dili]</td>
+      <td class="shu">$xueqi8[lishi]</td>
+      <td class="shu">$xueqi8[ziran]</td>
+      <td class="shu">$xueqi8[tiyu]</td>
+      <td class="shu">$xueqi8[meishu]</td>
+      <td class="shu">$xueqi8[yinyue]</td>
+      <td class="shu">$xueqi8[kexue]</td>
+      <td class="shu">$xueqi8[bingjia]</td>
+      <td class="shu">$xueqi8[shijia]</td>
+      <td class="shu">$xueqi8[kuangke]</td>
+      <td class="shu">$xueqi8[chidao]</td>
+      <td class="shu">$xueqi8[zaotui]</td>
+      <td colspan="2" class="shu">$xueqi8[qita]</td>
+    </tr>
+    <tr>
+      <td rowspan="2" class="shu">五<br />
+年<br />
+级</td>
+      <td class="shu">第一<br />
+学期</td>
+      <td class="shu">$xueqi9[yuwen]</td>
+      <td class="shu">$xueqi9[shuxue]</td>
+      <td class="shu">$xueqi9[waiyu]</td>
+      <td class="shu">$xueqi9[wuli]</td>
+      <td class="shu">$xueqi9[huaxue]</td>
+      <td class="shu">$xueqi9[shengwu]</td>
+      <td class="shu">$xueqi9[zhengzhi]</td>
+      <td class="shu">$xueqi9[dili]</td>
+      <td class="shu">$xueqi9[lishi]</td>
+      <td class="shu">$xueqi9[ziran]</td>
+      <td class="shu">$xueqi9[tiyu]</td>
+      <td class="shu">$xueqi9[meishu]</td>
+      <td class="shu">$xueqi9[yinyue]</td>
+      <td class="shu">$xueqi9[kexue]</td>
+      <td class="shu">$xueqi9[bingjia]</td>
+      <td class="shu">$xueqi9[shijia]</td>
+      <td class="shu">$xueqi9[kuangke]</td>
+      <td class="shu">$xueqi9[chidao]</td>
+      <td class="shu">$xueqi9[zaotui]</td>
+      <td colspan="2" class="shu">$xueqi9[qita]</td>
+    </tr>
+    <tr>
+      <td class="shu">第二<br />
+学期</td>
+      <td class="shu">$xueqi10[yuwen]</td>
+      <td class="shu">$xueqi10[shuxue]</td>
+      <td class="shu">$xueqi10[waiyu]</td>
+      <td class="shu">$xueqi10[wuli]</td>
+      <td class="shu">$xueqi10[huaxue]</td>
+      <td class="shu">$xueqi10[shengwu]</td>
+      <td class="shu">$xueqi10[zhengzhi]</td>
+      <td class="shu">$xueqi10[dili]</td>
+      <td class="shu">$xueqi10[lishi]</td>
+      <td class="shu">$xueqi10[ziran]</td>
+      <td class="shu">$xueqi10[tiyu]</td>
+      <td class="shu">$xueqi10[meishu]</td>
+      <td class="shu">$xueqi10[yinyue]</td>
+      <td class="shu">$xueqi10[kexue]</td>
+      <td class="shu">$xueqi10[bingjia]</td>
+      <td class="shu">$xueqi10[shijia]</td>
+      <td class="shu">$xueqi10[kuangke]</td>
+      <td class="shu">$xueqi10[chidao]</td>
+      <td class="shu">$xueqi10[zaotui]</td>
+      <td colspan="2" class="shu">$xueqi10[qita]</td>
+    </tr>
+    <tr>
+      <td rowspan="2" class="shu">六<br />
+年<br />
+级</td>
+      <td class="shu">第一<br />
+学期</td>
+      <td class="shu">$xueqi11[yuwen]</td>
+      <td class="shu">$xueqi11[shuxue]</td>
+      <td class="shu">$xueqi11[waiyu]</td>
+      <td class="shu">$xueqi11[wuli]</td>
+      <td class="shu">$xueqi11[huaxue]</td>
+      <td class="shu">$xueqi11[shengwu]</td>
+      <td class="shu">$xueqi11[zhengzhi]</td>
+      <td class="shu">$xueqi11[dili]</td>
+      <td class="shu">$xueqi11[lishi]</td>
+      <td class="shu">$xueqi11[ziran]</td>
+      <td class="shu">$xueqi11[tiyu]</td>
+      <td class="shu">$xueqi11[meishu]</td>
+      <td class="shu">$xueqi11[yinyue]</td>
+      <td class="shu">$xueqi11[kexue]</td>
+      <td class="shu">$xueqi11[bingjia]</td>
+      <td class="shu">$xueqi11[shijia]</td>
+      <td class="shu">$xueqi11[kuangke]</td>
+      <td class="shu">$xueqi11[chidao]</td>
+      <td class="shu">$xueqi11[zaotui]</td>
+      <td colspan="2" class="shu">$xueqi11[qita]</td>
+    </tr>
+    <tr>
+      <td class="shu">第二<br />
+学期</td>
+      <td class="shu">$xueqi12[yuwen]</td>
+      <td class="shu">$xueqi12[shuxue]</td>
+      <td class="shu">$xueqi12[waiyu]</td>
+      <td class="shu">$xueqi12[wuli]</td>
+      <td class="shu">$xueqi12[huaxue]</td>
+      <td class="shu">$xueqi12[shengwu]</td>
+      <td class="shu">$xueqi12[zhengzhi]</td>
+      <td class="shu">$xueqi12[dili]</td>
+      <td class="shu">$xueqi12[lishi]</td>
+      <td class="shu">$xueqi12[ziran]</td>
+      <td class="shu">$xueqi12[tiyu]</td>
+      <td class="shu">$xueqi12[meishu]</td>
+      <td class="shu">$xueqi12[yinyue]</td>
+      <td class="shu">$xueqi12[kexue]</td>
+      <td class="shu">$xueqi12[bingjia]</td>
+      <td class="shu">$xueqi12[shijia]</td>
+      <td class="shu">$xueqi12[kuangke]</td>
+      <td class="shu">$xueqi12[chidao]</td>
+      <td class="shu">$xueqi12[zaotui]</td>
+      <td colspan="2" class="shu">$xueqi12[qita]</td>
+    </tr>
+    
+    <tr>
+      <td class="shu">备注</td>
+      <td colspan="23">$student[remark]</td>
+    </tr>
+  </table>
+</div>

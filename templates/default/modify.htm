@@ -1,0 +1,113 @@
+{if $do=='changeclass'}
+<div class="yourpos">
+	<ul>
+		<li class="home">当前位置：</li>
+		<li><a href="index.php?action=home">首页</a></li>
+		<li>办理转班</li>
+	</ul>
+</div>
+<div class="body">
+	<table width="100%" border="0" cellspacing="1">
+	  <tr>
+		<td width="120" height="30">请输入转班人学号：</td>
+		<td><input name="studentid" type="text" class="text" id="studentid" style="width:200px;" /></td>
+	  </tr>
+	  <tr>
+		<td height="30">请选择转入班级：</td>
+		<td>
+		<select name="classid" id="classid">
+	      <option value="1"{if $class==1} selected="selected"{/if}>一班</option>
+	      <option value="2"{if $class==2} selected="selected"{/if}>二班</option>
+	      <option value="3"{if $class==3} selected="selected"{/if}>三班</option>
+	      <option value="4"{if $class==4} selected="selected"{/if}>四班</option>
+	      <option value="5"{if $class==5} selected="selected"{/if}>五班</option>
+	      <option value="6"{if $class==6} selected="selected"{/if}>六班</option>
+	      <option value="7"{if $class==7} selected="selected"{/if}>七班</option>
+	      <option value="8"{if $class==8} selected="selected"{/if}>八班</option>
+	      <option value="9"{if $class==9} selected="selected"{/if}>九班</option>
+	      <option value="10"{if $class==10} selected="selected"{/if}>十班</option>
+	      </select>	　
+		  <input name="button" type="button" value="提交" onclick="changeClass()" class="button"/>
+		</td>
+	  </tr>
+  </table>
+</div>
+{/if}
+{if $do=='input'}
+<div class="yourpos">
+	<ul>
+		<li class="home">当前位置：</li>
+		<li><a href="index.php?action=home">首页</a></li>
+		<li>转入本校</li>
+	</ul>
+</div>
+<div class="body">
+	请输入转入学生学号：<input name="studentid" id="studentid" type="text" class="text" style="width:200px;" />
+	<input type="button" value="确定" onclick="StudentInput()" class="button" />
+</div>
+{/if}
+{if $do=='output'}
+<div class="yourpos">
+	<ul>
+		<li class="home">当前位置：</li>
+		<li><a href="index.php?action=home">首页</a></li>
+		<li>转出本校</li>
+	</ul>
+</div>
+<div class="body">
+	请输入转出学生学号：<input name="studentid" id="studentid" type="text" class="text" style="width:200px;" />
+	<input type="button" value="确定" onclick="StudentOutput()" class="button" />
+</div>
+{/if}
+{if $do=='leave'}
+<div class="yourpos">
+	<ul>
+		<li class="home">当前位置：</li>
+		<li><a href="index.php?action=home">首页</a></li>
+		<li>办理休学</li>
+	</ul>
+</div>
+<div class="body">
+	请输入休学学生学号：<input name="studentid" id="studentid" type="text" class="text" style="width:200px;" />
+	<input type="button" value="确定" onclick="StudentLeave()" class="button" />
+</div>
+{/if}
+{if $do=='return'}
+<div class="yourpos">
+	<ul>
+		<li class="home">当前位置：</li>
+		<li><a href="index.php?action=home">首页</a></li>
+		<li>办理复学</li>
+	</ul>
+</div>
+<div class="body">
+	请输入复学学生学号：<input name="studentid" id="studentid" type="text" class="text" style="width:200px;" />
+	<input type="button" value="确定" onclick="StudentReturn()" class="button" />
+</div>
+{/if}
+{if $do=='repeat'}
+<div class="yourpos">
+	<ul>
+		<li class="home">当前位置：</li>
+		<li><a href="index.php?action=home">首页</a></li>
+		<li>办理留级</li>
+	</ul>
+</div>
+<div class="body">
+	请输入留级学生学号：<input name="studentid" id="studentid" type="text" class="text" style="width:200px;" />
+	<input type="button" value="确定" onclick="StudentRepeat()" class="button" />
+</div>
+{/if}
+{if $do=='quit'}
+<div class="yourpos">
+	<ul>
+		<li class="home">当前位置：</li>
+		<li><a href="index.php?action=home">首页</a></li>
+		<li>办理退学</li>
+	</ul>
+</div>
+<div class="body">
+	请输入退学学生学号：<input name="studentid" id="studentid" type="text" class="text" style="width:200px;" />
+	<input type="button" value="确定" onclick="StudentQuit()" class="button" />
+</div>
+{/if}

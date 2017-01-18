@@ -1,0 +1,74 @@
+<div class="body">
+	<h1 class="card-title">学籍变更申请表</h1>
+	<div class="blank"></div>
+  	<table width="100%" border="0" cellspacing="1" cellpadding="0" class="card" style="width:19cm; margin:0 auto;">
+      <tr>
+        <td width="70">姓名</td>
+        <td>$task[name]</td>
+      </tr>
+      <tr>
+        <td>所在学校</td>
+        <td>$task[school]</td>
+      </tr>
+	  <tr>
+	    <td>性别</td>
+	    <td>$lang[sex][$task[sex]]</td>
+      </tr>
+	  <tr>
+	    <td>学籍号</td>
+	    <td>$task[studentid]</td>
+      </tr>
+	  <tr>
+	    <td>身份证号</td>
+	    <td>$task[idnumber]</td>
+      </tr>
+	  <tr>
+	    <td>变更类型</td>
+	    <td>$task[tasktype]</td>
+      </tr>
+	  <tr>
+        <td>提交时间</td>
+        <td>$task[dateline]</td>
+      </tr>
+	  <tr>
+	    <td>变更时间</td>
+	    <td>$task[changetime]</td>
+      </tr>
+	  <tr>
+        <td>经办人</td>
+        <td>$task[manager]</td>
+      </tr>
+	  <tr>
+        <td>去向</td>
+        <td>$task[whereabouts]</td>
+      </tr>
+      <tr>
+        <td>变更原因</td>
+        <td>$task[body]</td>
+      </tr>
+      <tr>
+        <td>处理情况</td>
+        <td>$task[taskstatus]</td>
+      </tr>
+      <tr>
+        <td>初审情况</td>
+        <td>$task[trailstatus]</td>
+      </tr>
+	  {if $task[trail]==-1}
+      <tr>
+        <td>拒绝原因</td>
+        <td>$task[freason1]</td>
+      </tr>
+	  {/if}
+      <tr>
+        <td>终审情况</td>
+        <td>$task[finalstatus]</td>
+      </tr>
+	  {if $task[final]==-1}
+      <tr>
+        <td>拒绝原因</td>
+        <td>$task[freason2]</td>
+      </tr>
+	  {/if}
+    </table>
+</div>

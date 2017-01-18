@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>打印统计表</title>
+<meta name="keywords" content="{$config.keywords}" />
+<meta name="description" content="{$config.description}" />
+<link href="images/style.css" rel="stylesheet" type="text/css">
+{literal}<style type="text/css">
+h3 {font-size:18px;}
+td,th,div {font-size:14px; padding:5px 0;}
+</style>{/literal}
+</head>
+
+<body style="padding-top:10px;">
+{if $do=='town'}
+<div class="body" style="width:21cm; margin:0 auto;">
+	<h3 style="text-align:center; padding:10px 0;">{$town.town}学生情况统计表</h3>
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="tablelist">
+		<tr>
+			<th width="30">编号</th>
+			<th width="100">乡镇</th>
+			<th width="100">学生总数</th>
+			<th width="100">男生人数</th>
+			<th width="100">女生人数</th>
+			<th></th>
+		</tr>
+		{foreach from=$stats item=stat name=statinfo}
+		<tr onmouseover="this.className='hover'" onmouseout="this.className=''">
+			<td>{$smarty.foreach.statinfo.iteration}</td>
+			<td>{$stat.sname}</td>
+			<td>{$stat.total}</td>
+			<td>{$stat.male}</td>
+			<td>{$stat.female}</td>
+			<td></td>
+		</tr>
+		{/foreach}
+	</table>
+	<div style="padding:5px 0; text-align:right;">总计{$total.town}个学校，{$total.total}人，男生{$total.male}人，女生{$total.female}人。</div>
+</div>
+{else}
+<div class="body" style="width:21cm; margin:0 auto;">
+	<h3 style="text-align:center; padding:10px 0;">盘县学生情况统计表{if $atype>0}({$atypename}){/if}</h3>
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="tablelist">
+		<tr>
+			<th width="30">编号</th>
+			<th width="100">乡镇</th>
+			<th width="100">学生总数</th>
+			<th width="100">男生人数</th>
+			<th width="100">女生人数</th>
+			<th></th>
+		</tr>
+		{foreach from=$stats item=stat name=statinfo}
+		<tr onmouseover="this.className='hover'" onmouseout="this.className=''">
+			<td>{$smarty.foreach.statinfo.iteration}</td>
+			<td>{$stat.town}</td>
+			<td>{$stat.total}</td>
+			<td>{$stat.male}</td>
+			<td>{$stat.female}</td>
+			<td></td>
+		</tr>
+		{/foreach}
+	</table>
+	<div style="padding:5px 0; text-align:right;">总计{$total.town}个学校，{$total.total}人，男生{$total.male}人，女生{$total.female}人。</div>
+</div>
+{/if}
+</body>
+</html>

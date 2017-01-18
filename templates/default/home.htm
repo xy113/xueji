@@ -1,0 +1,15 @@
+<div class="yourpos">
+	<ul>
+		<li class="home">当前位置：</li>
+		<li><a href="$BASESCRIPT?action=home">首页</a></li>
+		<li>系统公告</li>
+	</ul>
+</div>
+<div class="body">
+	<div class="titlediv"><strong>最新公告</strong><div class="clear"></div></div> 
+	<ul class="list">
+	{loop $announces $ann}
+	<li><a href="index.php?action=news&id={$ann[id]}" target="_blank">[{$ann[dateline]}]　{$ann[title]}</a></li>
+	{/loop}
+	</ul>
+</div>

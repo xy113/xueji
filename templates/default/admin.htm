@@ -1,0 +1,246 @@
+{if $do=='add'||$do=='edit'}
+<div class="yourpos">
+	<ul>
+		<li class="home">当前位置：</li>
+		<li><a href="$BASESCRIPT?action=home">首页</a></li>
+		<li>管理员管理</li>
+		{if $do=='add'}<li>添加管理员</li>{else}<li>编辑管理员</li>{/if}
+	</ul>
+</div>
+<div class="body">
+	<div class="titlediv"> 
+		<strong>管理员管理</strong>
+		<ul class="tab">
+			<li><a href="$BASESCRIPT?action=$action"><span>管理</span></a></li>
+			{if $do=='add'}
+			<li class="current"><a href="$BASESCRIPT?action=$action&do=add"><span>添加</span></a></li>
+			{else}
+			<li class="current"><a href="$BASESCRIPT?action=$action&do=edit&adminid=$adminid"><span>编辑</span></a></li>
+			{/if}
+		</ul>
+		<div class="clear"></div>
+	</div>
+	<form method="post" id="adminform" action="">
+	<input type="hidden" name="formhash" value="{FORMHASH}" />
+	<input type="hidden" name="formsubmit" value="yes" />
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form">
+	  {if $do=='add'}
+      <tr>
+        <td width="75">管理员账号</td>
+        <td><input type="text" class="text" name="adminnew[username]" />　必填，支持中文</td>
+      </tr>
+      <tr>
+        <td>登录密码</td>
+        <td><input type="password" class="text" name="adminnew[password]" />　必填，至少六位</td>
+      </tr>
+	  {else}
+	  <tr>
+        <td width="70">管理员账号</td>
+        <td><input type="text" class="text" name="adminnew[username]" value="$admin[username]" readonly="" />　不可修改</td>
+      </tr>
+      <tr>
+        <td>登录密码</td>
+        <td><input type="password" class="text" name="adminnew[password]" />　至少六位，不修改请留空</td>
+      </tr>
+	  {/if}
+      <tr>
+        <td>管理员分组</td>
+        <td>
+			<select name="adminnew[groupid]" style="width:300px;" id="groupid">
+			{loop $admingroups $group}
+			<option value="$group[groupid]"{if $group[current]} selected="selected"{/if}>$group[grouptitle]</option>
+			{/loop}
+			</select>
+		</td>
+      </tr>
+	  <tbody id="towns"{if $admin[groupid]!=3} style="display:none;"{/if}>
+	  	<tr>
+			<td>所在乡镇</td>
+			<td>
+				<select name="adminnew[tid]" id="thetown" style="width:300px;">
+					<option value="0">请选择</option>
+					{loop $towns $town}
+					<option value="$town[tid]"{if $town[tid]==$admin[tid]} selected="selected"{/if}>$town[town]</option>
+					{/loop}
+				</select>
+			</td>
+		</tr>
+	  </tbody>
+	  <tbody id="schools"{if $admin[groupid]!=4} style="display:none;"{/if}>
+	  	<tr>
+			<td>所在学校</td>
+			<td>
+				<select name="adminnew[sid]" style="width:300px;">
+					<option value="0">请选择</option>
+					{loop $towns $town}
+					<optgroup label="$town[town]">
+					{loop $schools[$town[tid]] $sc}
+					<option value="$sc[sid]"{if $sc[sid]==$admin[sid]} selected="selected"{/if}>$sc[sname]</option>
+					{/loop}
+					</optgroup>
+					{/loop}
+				</select>
+			</td>
+		</tr>
+	  </tbody>
+      <tr>
+        <td>真实姓名</td>
+        <td><input type="text" class="text" name="adminnew[realname]" value="$admin[realname]" /></td>
+      </tr>
+      <tr>
+        <td>联系电话</td>
+        <td><input type="text" class="text" name="adminnew[tel]" value="$admin[tel]" /></td>
+      </tr>
+      <tr>
+        <td>电子邮件</td>
+        <td><input type="text" class="text" name="adminnew[email]" value="$admin[email]" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><input type="submit" class="button" value="提交" /></td>
+      </tr>
+    </table>
+	</form>
+</div>
+<script type="text/javascript">
+$("#adminform").submit(function(){
+	if(!$("input[name='adminnew[username]']").val()){
+		alert("用户名不能留空");
+		return false;
+	}
+	var password = $("input[name='adminnew[password]']").val();
+	if(password && password.length<6){
+		alert("密码至少6位，请重新输入");
+		return false;
+	}
+	return true;
+});
+$("#groupid").change(function(){
+	if($(this).val()==3){
+		$("#towns").show();
+		$("#schools").hide();
+	}else{
+		$("#towns").hide();
+		if($(this).val()==4){
+			$("#schools").show();
+		}else{
+			$("#schools").hide();
+		}
+	}
+});
+</script>
+{elseif $do=='view'}
+<div class="yourpos">
+	<ul>
+		<li class="home">当前位置：</li>
+		<li><a href="$BASESCRIPT?action=home">首页</a></li>
+		<li>管理员管理</li>
+		<li>查看管理员信息</li>
+	</ul>
+</div>
+<div class="body">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form">
+	  <tr>
+		<td width="67">用户名</td>
+		<td width="493">$admin[username]</td>
+	  </tr>
+	  <tr>
+		<td>管理分组</td>
+		<td>$admin[grouptitle]</td>
+	  </tr>
+	  <tbody id="towns">
+		<tr>
+		  <td>所在乡镇</td>
+		  <td>$admin[town]</td>
+		</tr>
+	  </tbody>
+	  <tbody id="schools">
+		<tr>
+		  <td>所在学校</td>
+		  <td>$admin[school]</td>
+		</tr>
+	  </tbody>
+	  <tr>
+		<td>真实姓名</td>
+		<td>$admin[realname]</td>
+	  </tr>
+	  <tr>
+		<td>联系电话</td>
+		<td>$admin[tel]</td>
+	  </tr>
+	  <tr>
+		<td>电子邮件</td>
+		<td>$admin[email]</td>
+	  </tr>
+	</table>
+</div>
+{else}
+<div class="yourpos">
+	<ul>
+		<li class="home">当前位置：</li>
+		<li><a href="$BASESCRIPT?action=home">首页</a></li>
+		<li>管理员管理</li>
+		<li>管理员列表</li>
+	</ul>
+</div>
+<div class="body">
+	<div class="titlediv"><strong>管理员管理</strong>
+		<ul class="tab">
+			<li class="current"><a href="$BASESCRIPT?action=$action"><span>管理</span></a></li>
+			<li><a href="$BASESCRIPT?action=$action&do=add"><span>添加</span></a></li>
+		</ul>
+		<div class="clear"></div>
+  </div>
+	<form method="post" action="" name="admins" id="admins">
+	<input type="hidden" name="formhash" value="{FORMHASH}" />
+	<input type="hidden" name="formsubmit" value="yes" />
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="tlist">
+		<tr>
+			<th width="60"><input type="checkbox" class="checkbox" onclick="checkAll(this,'delete[]')" /> 全选</th>
+			<th>管理员账号</th>
+			<th width="100">真实姓名</th>
+			<th width="100">管理分组</th>
+			<th width="100">所在乡镇</th>
+			<th width="120">联系电话</th>
+			<th width="160">电子邮件</th>
+			<th width="130">最后登录时间</th>
+			<th width="100">最后登录IP</th>
+			<th width="70">登录次数</th>
+			<th width="50">已审核</th>
+			<th width="40">选项</th>
+		</tr>
+		{loop $admins $admin}
+		<tr onmouseover="this.className='hover'" onmouseout="this.className=''">
+			<td><input type="checkbox" value="{$admin[adminid]}"{if $admin[isfounder]} disabled="disabled"{else} name="delete[]"{/if} /></td>
+			<td><a href="###" onclick="viewDetail($admin[adminid])">{$admin[username]}</a></td>
+			<td>{$admin[realname]}</td>
+			<td>{$admin[grouptitle]}</td>
+			<td>$admin[town]</td>
+			<td>{$admin[tel]}</td>
+			<td><a href="mailto:{$admin[email]}">{$admin[email]}</a></td>
+			<td>$admin[lastlogin]</td>
+			<td>$admin[lastip]</td>
+			<td>$admin[logintimes]</td>
+			<td><img src="images/{if $admin[status]}yes.gif{else}no.gif{/if}"{if !$admin[isfounder]} class="toggle" onclick="toggle(this,'do=toggle_status&adminid=$admin[adminid]&formsubmit=yes&formhash={FORMHASH}')" title="点击更改审核状态"{/if} border="0" /></td>
+			<td><a href="$BASESCRIPT?action=admin&do=edit&adminid={$admin[adminid]}">编辑</a></td>
+		</tr>
+		{/loop}
+		<tr>
+			<td><input type="checkbox" class="checkbox" onclick="checkAll(this,'delete[]')" /> 全选</td>
+			<td colspan="11">
+				<span class="pagebox">{$pagelink}</span>
+				<input type="submit" class="button" value="删除" onclick="submitForm('delete')" />
+				<input type="button" class="button" value="导出EXCEL表格" onclick="window.open('$BASESCRIPT?action=$action&do=export')" />
+				<input type="button" class="button" value="刷新" onclick="LoadPage('page=$page')" />
+			</td>
+		</tr>
+	</table>
+	</form>
+</div>
+<script type="text/javascript">
+function viewDetail(adminid){
+	var sw=Math.floor((window.screen.width/2-300));
+    var sh=Math.floor((window.screen.height/2-280));
+	window.open(purl+'&do=view&adminid='+adminid,'dialog','Width=600,Height=400,toolbar=no,menubar=no,directories=no,top='+sh+',left='+sw+',resizable=yes,scrollbars=yes,center=yes,help=no,alwaysRaised=yes,location=no, status=no',false);
+}
+</script>
+{/if}

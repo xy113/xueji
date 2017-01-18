@@ -1,0 +1,109 @@
+/* CSS Document */
+html,body {padding:0; margin:0; font-size:12px; font-family:Arial;}
+body {padding:40px 0 20px 0;}
+form,ul,li,h1,h2,h3 {padding:0; margin:0; list-style:none;}
+a:link,a:visited,a:active {color:#000; text-decoration:none;}
+a:hover {color:#FF0000; text-decoration:underline;}
+.clear {height:1px; line-height:1px; clear:both;}
+.blank {height:8px; line-height:8px; clear:both;}
+.text{border-top:1px #666 solid; border-left:1px #666 solid; border-right:1px #CCCCCC solid; border-bottom:1px #CCCCCC solid; width:300px; padding:2px; font:12px Arial; vertical-align:middle;}
+.button {background:#ddd; border-left:1px #ddd solid; border-top:1px #ddd solid; border-right:1px #333 solid; border-bottom:1px #333 solid; padding:0 10px; height:22px; line-height:22px; vertical-align:middle;}
+select {border-top:1px #666 solid; border-left:1px #666 solid; border-right:1px #CCCCCC solid; border-bottom:1px #CCCCCC solid; padding:2px; vertical-align:middle;}
+.menubar {background:url(title_bg.jpg) repeat-x; height:24px; font:bold 12px/24px Arial; clear:both; border-bottom:1px #CCCCCC solid; border-top:1px #CCCCCC solid; padding:0 20px;}
+.menubar span {float:right; font-weight:bold;}
+.checkbox {vertical-align:middle; height:14px;}
+.text60 {width:60px;}
+.text160 {width:160px;}
+#top {background:url(top_bg.png) left repeat-x; height:72px; padding:0; position:relative;}
+#top div.topMenu {text-align:right; padding-right:10px; font:400 12px/28px Arial; height:28px; position:absolute; top:0; right:0;}
+#top .logo {width:500px; height:72px; float:left;}
+#LeftMenu {width:160px; vertical-align:top; text-align:left; background:#ebebeb; border-right:1px #009933 solid; overflow-x:hidden;}
+#LeftMenu div {background:url(left_nav_bg.png) repeat-x; height:25px; font:bold 12px/25px ''; padding-left:26px; clear:both; cursor:pointer;}
+#LeftMenu ul {clear:both; text-align:left; display:none;}
+#LeftMenu ul li {height:24px; line-height:24px; overflow:hidden;}
+#LeftMenu ul li a{background:url(leftdot.gif) 8px center no-repeat; padding-left:22px; text-decoration:none; display:block;}
+#LeftMenu ul li a:hover,table.main td.leftMenu ul li a.cur{background:url(leftdot.gif) 8px center no-repeat #fff;}
+
+.yourpos {background:url(position_bg.gif) repeat-x; height:32px; overflow:hidden; padding:0; position:fixed; top:0; clear:both; width:100%;}
+.yourpos ul {padding:0 10px;}
+.yourpos ul li {background:url(position_dot.gif) left center no-repeat; float:left; height:30px; padding:0 2px 2px 16px; line-height:26px;}
+.yourpos ul li.home {background:none; padding-left:0;}
+.yourpos ul li.right{float:right; font-weight:bold;}
+.yourpos ul li.right a {margin-right:5px;}
+.yourpos ul li a{float:left;}
+.body {clear:both; margin:0px 20px;}
+table.form {clear:both; text-align:left;}
+table.form td{text-align:left; padding:5px 5px 5px 0; border-bottom:1px #e2e2e2 dotted; background:#fff;}
+table.form td.bold {padding-top:8px; font-weight:bold;}
+table.form td li {padding:3px 0;}
+table.form td div {padding:3px 0; line-height:150%; font-family:Arial;}
+table.form tr.hover td{background:#e2e2e2;}
+table.tlist {clear:both; margin:0;}
+table.tlist td,table.tlist th {padding:5px 0; text-align:left;border-bottom:1px #e2e2e2 dotted;}
+table.tlist tr.hover td{background:#e2e2e2;}
+.titlediv {clear:both; padding:10px 0; border-bottom:3px #DEEFFA solid; line-height:22px;}
+.titlediv strong {color:#0099CC; float:left; margin:0 20px 0 0; clear:none; font-size:13px;}
+.titlediv .tab {float:left; clear:none;}
+.titlediv .tab li{float:left; margin-right:3px; height:22px; font-size:14px;}
+.titlediv .tab li a{display:block; line-height:22px;}
+.titlediv .tab li a span {display:block; padding:0 7px;}
+.titlediv .tab li a:hover {background:url(btn_block_3.gif) 0 -40px no-repeat; color:#555; text-decoration:none;}
+.titlediv .tab li a:hover span {background:url(btn_block_3.gif) right -60px no-repeat;}
+.titlediv .tab li.current a{background:url(btn_block_3.gif) 0 0 no-repeat; color:#fff;}
+.titlediv .tab li.current a span{background:url(btn_block_3.gif) right -20px no-repeat;}
+.titlediv .right {float:right;}
+.toggle {cursor:pointer;}
+
+a.button {display:inline-block; padding:3px 10px; background:#ddd; font:400 12px ''; border-left:1px #ddd solid; border-top:1px #ddd solid; border-right:1px #333 solid; border-bottom:1px #333 solid;}
+a.button:hover {text-decoration:none;}
+.pagebox {float:right;}
+.pagebox a{margin:0 3px;}
+.announce-title {font-size:18px; text-align:center; padding:20px 0; clear:both;}
+.announce-body {text-align:justify; line-height:180%; font-size:14px;}
+.announce-info {height:26px; line-height:26px; text-align:center; font-size:12px;}
+.announce-sign {text-align:right; height:24px; line-height:24px;}
+.list {padding:10px 0; clear:both;}
+.list li {font-size:14px; text-align:left; height:26px; line-height:26px; clear:both; font-family:""; background:url(arrow.gif) left center no-repeat; padding-left:15px;}
+.townlist {clear:both; padding:10px 0;}
+.townlist li {width:80px; text-align:center; height:26px; float:left;}
+.townlist li a{display:block; text-decoration:none; padding:5px 0;}
+.townlist li a:hover {background:#333; color:#fff; text-decoration:none;}
+.bottom {text-align:center; border-top:1px #009933 solid; background:#e2e2e2; padding:0 20px; height:30px; line-height:30px;}
+.bottom span {float:right;}
+.copyright {margin:20px auto; text-align:center; clear:both; height:30px; font:400 13px/30px Arial;}
+.tablelist {clear:both; width:100%; border-left:1px #c0c0c0 solid;}
+.tablelist th,.tablelist td {height:22px; padding-left:3px;}
+.tablelist th {background:#ECE9D8; border-bottom:1px #333 solid; border-right:1px #333 solid; border-top:1px #c0c0c0 solid; font-weight:400; text-align:left; color:#333;}
+.tablelist td {border-bottom:1px #c0c0c0 solid; border-right:1px #c0c0c0 solid;}
+.tablelist tr.hover {background:#e2e2e2;}
+.tablelist .firstcell {background:#ECE9D8; border-right:1px #333 solid; border-bottom:1px #333 solid; border-left:1px #c0c0c0 solid; width:8px;}
+#searchadvance {font-weight:400; color:#333; font-size:12px;}
+.choosetitle {padding:7px 0; font-size:14px;}
+.chooselist {padding:5px; line-height:150%; font-size:14px;}
+.chooselist a {margin-right:10px;}
+/*½*/
+.loginbox {width:640px;height:160px;margin:0 auto;margin-top:150px;clear:both;}
+.loginbox .left {width:310px;text-align:left;float:left;padding-right:20px;background: url(login-bg.gif) right center no-repeat; margin-top:10px;}
+.loginbox .left p {font-size:12px;color:#666666;}
+.loginbox .right {width:260px;float:left;margin-left:10px;}
+.loginbox .right li {text-align:left;vertical-align:middle;list-style:none;height:30px;line-height:30px;}
+.loginbox .right li.li2{margin-top:5px;}
+.loginbox .right li .linput {padding:2px 3px;width:130px;height:18px;border:1px #6C92AD solid;}
+.loginbox .right li .linput:hover {padding:2px 3px;width:130px;height:18px;border:1px #FF9933 solid;}
+.loginbox .right li .lable{width:36px;height:30px;line-height:30px;margin-right:10px;vertical-align:middle;clear:left;float:left;}
+h3.tishi {clear:both; height:30px; font:bold 13px/30px ''; color:#0099CC; margin:0 20px;}
+.divmessage {background:#F2F9FD; text-align:center; padding:30px 0; border-bottom:5px #DEEEFA solid; border-top:5px #DEEEFA solid; margin:0 20px; clear:both;}
+.divmessage h3{clear:both; font-size:18px; padding:10px 0; height:24px; line-height:24px; margin:0;}
+.divmessage h3.succeed {color:#009900;}
+.divmessage h3.error{color:#CC0000;}
+.divmessage h3.loading{color:#000;}
+.divmessage p.autoredirect {padding:0; text-align:center; line-height:150%; margin:0; clear:both;}
+.divmessage p.margintop {clear:both; margin:20px 0 0 0; padding:0;}
+.card-title {text-align:center;}
+.card-info {padding:7px 0; text-align:center; font:bold 14px Arial;}
+.card {clear:both; background:#000; width:720px; margin:0 auto;}
+.card th,.card td {background:#fff; height:24px; padding:3px 5px;}
+.card td.xiexian {background:url(tbg2.png) bottom right no-repeat #fff;}
+.card td.shu{text-align:center;}
+.card .avatar {width:100px; height:135px; border:0;}
+.card .markdate {text-align:right; clear:both; margin-top:5px;}

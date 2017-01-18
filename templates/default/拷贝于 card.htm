@@ -1,0 +1,381 @@
+<div class="body">
+	<h1 class="card-title"><span style="text-decoration:underline; letter-spacing:8px;">盘县初中学生学籍卡</span></h1>
+	<p class="card-info">中学（盖章）　　　学籍号：{$studentid}　　　变更号</p>
+  <table width="100%" border="0" cellspacing="1" cellpadding="0" class="card">
+    <tr>
+      <td width="57">姓名</td>
+      <td width="100">$student[name]</td>
+      <td width="44">性别</td>
+      <td width="68">$student[sex]</td>
+      <td width="46">民族</td> 
+      <td width="89">$student[nation]</td>
+      <td width="66">出生年月</td>
+      <td width="193">$student[birthday]</td>{eval $rows=count($family)+4}
+      <td width="121" rowspan="{$rows}" class="shu"><img src="data/avatar/$student[avatar]" alt="学生照片" class="avatar"></td>
+    </tr>
+    <tr>
+      <td>籍贯</td>
+      <td colspan="4">$student[birthplace]</td>
+      <td>家庭住址</td>
+      <td colspan="2">$student[address]</td>
+    </tr>
+    <tr>
+      <td colspan="2">何时何地加入共青团</td>
+      <td colspan="3">&nbsp;</td>
+      <td>原毕业学校</td>
+      <td colspan="2">$student[graduate]</td>
+    </tr>
+	{eval $rows=count($family)+1}
+    <tr>
+      <td rowspan="$rows">家庭<br>
+      主要<br>
+      成员</td>
+      <td>关系</td>
+      <td colspan="2">姓名</td>
+      <td colspan="2">工作单位及职务</td>
+      <td colspan="2">工作、地点</td>
+    </tr>
+	{loop $family $fa}
+    <tr>
+      <td>$fa[relationship]</td>
+      <td colspan="2">$fa[name]</td>
+      <td colspan="2">$fa[job]</td>
+      <td colspan="2">$fa[workplace]</td>
+    </tr>
+	{/loop}
+  </table>
+  <table width="100%" border="0" cellspacing="1" cellpadding="0" class="card" style="border-top:0; margin-top:-1px;">
+    <tr>
+      <td width="145">转学日期，年级及原因</td>
+      <td width="260">&nbsp;</td>
+      <td width="49">去向</td>
+      <td width="171">&nbsp;</td>
+      <td width="98">经办人（签字）</td>
+      <td width="64">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>休学日期，年级及原因</td>
+      <td>&nbsp;</td>
+      <td>去向</td>
+      <td>&nbsp;</td>
+      <td>经办人（签字）</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>退学日期，年级及原因</td>
+      <td>&nbsp;</td>
+      <td>去向</td>
+      <td>&nbsp;</td>
+      <td>经办人（签字）</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>复学日期，年级及原因</td>
+      <td>&nbsp;</td>
+      <td>重编号</td>
+      <td>&nbsp;</td>
+      <td>经办人（签字）</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+  <table width="100%" border="0" cellspacing="1" cellpadding="0" class="card" style="border-top:0; margin-top:-1px;">
+    <tr>
+      <td colspan="3" rowspan="2" class="xiexian">&nbsp;</td>
+      <td width="35" rowspan="2" class="shu">政治</td>
+      <td width="35" rowspan="2" class="shu">语文</td>
+      <td width="35" rowspan="2" class="shu">数学</td>
+      <td width="35" rowspan="2" class="shu">外语</td>
+      <td width="35" rowspan="2" class="shu">物理</td>
+      <td width="35" rowspan="2" class="shu">化学</td>
+      <td width="35" rowspan="2" class="shu">历史</td>
+      <td width="35" rowspan="2" class="shu">地理</td>
+      <td width="35" rowspan="2" class="shu">生物</td>
+      <td width="35" rowspan="2" class="shu">生理卫生</td>
+      <td width="35" rowspan="2" class="shu">体育</td>
+      <td width="35" rowspan="2" class="shu">美术</td>
+      <td width="35" rowspan="2" class="shu">音乐</td>
+      <td width="35" rowspan="2" class="shu">劳技</td>
+      <td colspan="5" class="shu">考勤统计</td>
+      <td colspan="2" rowspan="2" class="shu">其他</td>
+    </tr>
+    <tr>
+      <td class="shu">病</td>
+      <td class="shu">事</td>
+      <td class="shu">旷</td>
+      <td class="shu">迟</td>
+      <td class="shu">早退</td>
+    </tr>
+    <tr>
+      <td width="23" rowspan="12" class="shu">学<br>
+        <br>
+        <br>
+      习<br>
+      <br>
+      <br>
+      成<br>
+      <br>
+      <br>
+      绩</td>
+      <td width="23" rowspan="4" class="shu">一<br>
+        <br>
+        年<br>
+      <br>
+      级</td>
+      <td width="73">第一学期</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>第二学期</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>总　　评</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td colspan="7" rowspan="2" valign="top">班主任签字：<div class="markdate">年　月　日</div></td>
+    </tr>
+    <tr>
+      <td>补　　考</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td rowspan="4" class="shu">二<br>
+        <br>
+        年<br>
+      <br>
+      级</td>
+      <td>第一学期</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>第二学期</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>总　　评</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td colspan="7" rowspan="2" valign="top">班主任签字：<div class="markdate">年　月　日</div></td>
+    </tr>
+    <tr>
+      <td>补　　考</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td rowspan="4" class="shu">三<br>
+        <br>
+        年<br>
+      <br>
+      级</td>
+      <td>第一学期</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>第二学期</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>总　　评</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td colspan="7" rowspan="2" valign="top">班主任签字：<div class="markdate">年　月　日</div></td>
+    </tr>
+    <tr>
+      <td>补　　考</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>备注</td>
+      <td colspan="23">$student[remark]</td>
+    </tr>
+  </table>
+</div>
